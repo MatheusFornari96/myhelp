@@ -1,20 +1,19 @@
 import { useState } from 'react';
-import { VStack, Heading, Icon, useTheme } from "native-base";
-
+import { VStack, Heading, Icon, useTheme } from 'native-base';
 import { Envelope, Key } from 'phosphor-react-native';
+
 import Logo from '../assets/logo_primary.svg';
 
-import { Input } from "../components/Input";
-import { Button } from "../components/Button";
-
+import { Input } from '../components/Input';
+import { Button } from '../components/Button';
 
 export function SignIn() {
-  let [name, setName] = useState('');
-  let [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
   const { colors } = useTheme();
 
-  function handleSignIn(){
+  function handleSignIn() {
     console.log(name, password);
   }
 
@@ -23,7 +22,7 @@ export function SignIn() {
       <Logo />
 
       <Heading color="gray.100" fontSize="xl" mt={20} mb={6}>
-        Acesse a sua conta
+        Acesse sua conta
       </Heading>
 
       <Input
@@ -32,6 +31,7 @@ export function SignIn() {
         InputLeftElement={<Icon as={<Envelope color={colors.gray[300]} />} ml={4} />}
         onChangeText={setName}
       />
+
       <Input
         mb={8}
         placeholder="Senha"
@@ -40,12 +40,7 @@ export function SignIn() {
         onChangeText={setPassword}
       />
 
-      <Button 
-      title="Entrar" 
-      w="full" 
-      />
-
-
+      <Button title="Entrar" w="full" onPress={handleSignIn} />
     </VStack>
-  );
+  )
 }
